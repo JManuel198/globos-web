@@ -1,0 +1,558 @@
+/* ==========================================================================
+   Diseño B — "Vibrante y juguetón"
+   --------------------------------------------------------------------------
+   Estética: rosa protagonista, tarjetas rellenas, formas redondeadas y
+   círculos decorativos. Más energía y color que la variante A.
+   Mobile-first; en pantallas grandes se mantiene como columna tipo móvil.
+   Depende de: variables.css (tokens) + reset.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. LAYOUT BASE — columna de contenido centrada
+   -------------------------------------------------------------------------- */
+html {
+  background: var(--color-page-bg);
+}
+
+.page {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  position: relative;
+  box-shadow: 0 0 40px rgba(43, 34, 48, 0.06);
+}
+
+/* Compensa el header fijo al saltar a una sección por ancla */
+[id] {
+  scroll-margin-top: 64px;
+}
+
+/* --------------------------------------------------------------------------
+   2. HEADER — fondo rosa claro y hamburguesa en rosa oscuro (variante B)
+   -------------------------------------------------------------------------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xs) var(--space-md);
+  background: var(--color-brand-tint);
+  border-bottom: 1px solid var(--color-brand-border-strong);
+}
+
+.header__burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-brand-dark); /* barras del icono en rosa */
+}
+
+/* Logo de marca (imagen real). Reutilizado en el header y en el menú. */
+.logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;         /* recorta la foto al círculo sin deformar */
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. NAV — menú a pantalla completa vía :target (fondo rosa en variante B)
+   -------------------------------------------------------------------------- */
+.nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  left: 0;
+  right: 0;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  z-index: 300;
+  background: var(--color-brand-tint);
+  padding: var(--space-md) var(--space-lg);
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.nav:target {
+  display: flex;
+}
+
+.nav__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 46px;
+  margin-bottom: var(--space-xl);
+}
+
+.nav__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-brand-dark);
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__link {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-weight: 700; /* más peso que la variante A */
+  font-size: 19px;
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-brand-border-strong);
+}
+
+.nav__link:last-child {
+  border-bottom: none;
+}
+
+.nav__social {
+  margin-top: auto;
+  display: flex;
+  gap: var(--space-sm);
+  padding-top: var(--space-lg);
+}
+
+/* --------------------------------------------------------------------------
+   4. HERO — tarjeta rosa con círculos decorativos
+   -------------------------------------------------------------------------- */
+.hero {
+  padding: var(--space-md);
+}
+
+.hero__card {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-brand-tint);
+  border-radius: var(--radius-xl);
+  padding: 26px var(--space-lg);
+}
+
+/* Círculos decorativos de fondo */
+.hero__decor {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--color-brand-border-strong);
+}
+.hero__decor--tr {
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  opacity: 0.6;
+}
+.hero__decor--bl {
+  bottom: -30px;
+  left: -24px;
+  width: 100px;
+  height: 100px;
+  opacity: 0.5;
+}
+
+.hero__inner {
+  position: relative; /* sobre los círculos decorativos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  text-align: center;
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+.hero__text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-muted-2);
+  max-width: 300px;
+}
+
+/* --------------------------------------------------------------------------
+   5. SECTIONS — títulos con más peso; barra de acento opcional
+   -------------------------------------------------------------------------- */
+.section {
+  padding: var(--space-xs) var(--space-lg) var(--space-2xl);
+}
+
+.section--flush {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.section__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 21px;
+  color: var(--color-ink);
+  margin-bottom: var(--space-2xs);
+}
+
+.section__title--inset {
+  padding-inline: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+/* Barra de acento bajo el título (sólo en "Quiénes somos") */
+.section__rule {
+  display: block;
+  width: 44px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--color-brand);
+  margin-bottom: 14px;
+}
+
+.section__subtitle {
+  font-size: 14px;
+  color: var(--color-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.section__text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+/* --------------------------------------------------------------------------
+   6. GALLERY — cuadrícula de 2 columnas (fotos verticales, más redondeadas)
+   -------------------------------------------------------------------------- */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+/* Cada foto de la galería (imagen real, vertical y muy redondeada en B) */
+.gallery__item {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 26px;
+  object-fit: cover;         /* llena la celda sin deformar la foto */
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   7. PACKAGES — tarjetas rosas con barra lateral de acento
+   -------------------------------------------------------------------------- */
+.packages__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.package {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-brand-tint);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  padding-left: 22px; /* deja sitio a la barra lateral */
+}
+
+/* Barra vertical de acento a la izquierda de la tarjeta */
+.package__bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--color-brand);
+}
+
+.package__name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--color-ink);
+  margin-bottom: var(--space-2xs);
+}
+
+/* En la variante B el precio va en su propia línea, sin badge */
+.package__price {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-brand-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.package__desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-muted-2);
+  margin-bottom: var(--space-sm);
+}
+
+/* --------------------------------------------------------------------------
+   8. CONTACT — datos dentro de una tarjeta rosa
+   -------------------------------------------------------------------------- */
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  /* Contenedor tipo tarjeta rosa (diferencia clave con la variante A) */
+  background: var(--color-brand-tint);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+
+.contact__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  color: var(--color-ink-soft);
+}
+
+.contact__icon {
+  flex-shrink: 0;
+  color: var(--color-brand-dark);
+}
+
+.contact__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: var(--space-md);
+}
+
+.contact__note {
+  margin-top: var(--space-xl);
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-faint);
+}
+
+/* --------------------------------------------------------------------------
+   10. BOTONES — bloque .btn (en la variante B todos son tipo píldora)
+   -------------------------------------------------------------------------- */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 var(--space-md);
+  border-radius: var(--radius-pill); /* píldora por defecto en variante B */
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  transition: background-color 0.15s ease;
+}
+
+/* CTA de WhatsApp (verde de canal, diferenciado del rosa de marca) */
+.btn--whatsapp {
+  background: var(--color-whatsapp);
+  color: var(--color-surface);
+}
+.btn--whatsapp:hover {
+  background: var(--color-whatsapp-dark);
+}
+
+/* Acción de marca (rosa sólido) — "Cotizar" */
+.btn--brand {
+  background: var(--color-brand);
+  color: var(--color-surface);
+}
+.btn--brand:hover {
+  background: var(--color-brand-dark);
+}
+
+/* Botón con contorno rosa (Instagram) */
+.btn--outline {
+  background: var(--color-surface);
+  color: var(--color-brand-dark);
+  border: 1.5px solid var(--color-brand);
+}
+
+/* Botón cuadrado sólo-icono (iconos sociales del menú) */
+.btn--icon {
+  flex: 1;
+  padding: 0;
+}
+.btn--icon.btn--whatsapp {
+  color: var(--color-surface);
+}
+
+/* CTA del hero con más énfasis y sombra */
+.hero__cta {
+  min-height: 44px;
+  font-size: 16px;
+  padding: 14px 26px;
+  box-shadow: var(--shadow-cta);
+}
+
+/* CTA de "Cotizar" dentro de cada paquete */
+.package__cta {
+  min-height: 44px;
+}
+
+/* --------------------------------------------------------------------------
+   11. PLACEHOLDERS — marcadores de imagen (contenido simulado)
+   -------------------------------------------------------------------------- */
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-xs);
+  background: var(--color-surface);
+  color: var(--color-brand-dark);
+  border: 1.5px dashed var(--color-brand);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* Hero de la variante B: imagen ancha (16/11) */
+.placeholder--hero {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: 22px;
+}
+
+/* Imagen dentro de cada tarjeta de paquete (mismo componente que la galería,
+   en formato apaisado para encabezar la tarjeta) */
+.placeholder--package {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  margin-bottom: var(--space-sm);
+}
+
+.placeholder--map {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   12. DOCK FLOTANTE — cambio de diseño (arriba) + WhatsApp (abajo)
+   -------------------------------------------------------------------------- */
+.dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: var(--space-lg);
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-sm);
+  z-index: 90;
+  pointer-events: none;
+}
+
+.dock > * {
+  pointer-events: auto;
+}
+
+/* Botón de cambio de diseño: discreto, sobre la burbuja de WhatsApp */
+.dock__switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 14px 0 12px;
+  background: var(--color-surface);
+  color: var(--color-brand-dark);
+  border: 1.5px solid var(--color-brand);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: var(--shadow-switch);
+  transition: background-color 0.15s ease;
+}
+.dock__switch:hover {
+  background: var(--color-brand-tint);
+}
+
+.dock__label {
+  white-space: nowrap;
+}
+
+/* Burbuja de WhatsApp: CTA dominante */
+.dock__whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-whatsapp);
+  box-shadow: var(--shadow-fab);
+  transition: background-color 0.15s ease;
+}
+.dock__whatsapp:hover {
+  background: var(--color-whatsapp-dark);
+}
+
+/* --------------------------------------------------------------------------
+   13. FOOTER — pie de página: marca, redes y copyright
+   --------------------------------------------------------------------------
+   En la variante B el footer va sobre fondo rosa, acorde a su estilo vibrante. */
+.footer {
+  background: var(--color-brand-tint);
+  border-top: 1px solid var(--color-brand-border-strong);
+  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+.footer__brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-ink);
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.footer__link {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-brand-dark);
+}
+.footer__link:hover {
+  color: var(--color-brand);
+}
+
+.footer__copy {
+  font-size: 12px;
+  color: var(--color-muted-2);
+}

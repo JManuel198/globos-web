@@ -1,0 +1,527 @@
+/* ==========================================================================
+   Diseño A — "Cálido y simple"
+   --------------------------------------------------------------------------
+   Estética: fondos blancos, acentos rosados sutiles, tarjetas con borde fino.
+   Sensación limpia y amable. Mobile-first; en pantallas grandes el contenido
+   se mantiene como una columna tipo móvil centrada.
+   Depende de: variables.css (tokens) + reset.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. LAYOUT BASE — columna de contenido centrada (estética móvil aprobada)
+   -------------------------------------------------------------------------- */
+html {
+  background: var(--color-page-bg); /* gutter neutro alrededor de la columna */
+}
+
+.page {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  position: relative;
+  /* Eleva la columna sobre el fondo neutro en pantallas grandes */
+  box-shadow: 0 0 40px rgba(43, 34, 48, 0.06);
+  /* Espacio inferior para que el dock flotante no tape el footer/contenido */
+  padding-bottom: 130px;
+}
+
+/* Compensa la altura del header fijo al saltar a una sección por ancla */
+[id] {
+  scroll-margin-top: 64px;
+}
+
+/* --------------------------------------------------------------------------
+   2. HEADER — logo + botón hamburguesa (fijo arriba de la columna)
+   -------------------------------------------------------------------------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xs) var(--space-md);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-brand-border);
+}
+
+.header__burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;               /* área táctil mínima recomendada */
+  height: 44px;
+  color: var(--color-ink);   /* color de las barras del icono (currentColor) */
+}
+
+/* Logo de marca (imagen real). Reutilizado en el header y en el menú. */
+.logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;         /* recorta la foto al círculo sin deformar */
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. NAV — menú a pantalla completa, mostrado con CSS puro vía :target
+   --------------------------------------------------------------------------
+   Oculto por defecto; visible sólo cuando la URL es #menu. Al pulsar un
+   enlace, el hash cambia a la sección y el menú se cierra automáticamente. */
+.nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  left: 0;
+  right: 0;
+  max-width: var(--page-max);
+  margin-inline: auto;       /* mantiene el overlay dentro de la columna */
+  z-index: 300;
+  background: var(--color-surface);
+  padding: var(--space-md) var(--space-lg);
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.nav:target {
+  display: flex;             /* :target lo activa sin JavaScript */
+}
+
+.nav__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 46px;
+  margin-bottom: var(--space-xl);
+}
+
+.nav__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-ink);
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__link {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-brand-border);
+}
+
+.nav__link:last-child {
+  border-bottom: none;
+}
+
+.nav__social {
+  margin-top: auto;          /* empuja los iconos sociales al fondo */
+  display: flex;
+  gap: var(--space-sm);
+  padding-top: var(--space-lg);
+}
+
+/* --------------------------------------------------------------------------
+   4. HERO — foto destacada, titular y CTA principal
+   -------------------------------------------------------------------------- */
+.hero {
+  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  text-align: center;
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1.25;
+  color: var(--color-ink);
+}
+
+.hero__text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-muted);
+  max-width: 300px;
+}
+
+.hero__cta {
+  box-shadow: var(--shadow-cta); /* solo el CTA del hero lleva sombra fuerte */
+}
+
+/* --------------------------------------------------------------------------
+   5. SECTIONS — envoltorio y títulos reutilizables
+   -------------------------------------------------------------------------- */
+.section {
+  padding: var(--space-xs) var(--space-lg) var(--space-2xl);
+}
+
+/* Variante sin padding lateral (para carriles que sangran a los bordes) */
+.section--flush {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.section__title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-ink);
+  margin-bottom: var(--space-xs);
+}
+
+/* Título con sangría lateral cuando la sección es "flush" */
+.section__title--inset {
+  padding-inline: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.section__subtitle {
+  font-size: 14px;
+  color: var(--color-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.section__text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+/* --------------------------------------------------------------------------
+   6. GALLERY — cuadrícula de 2 columnas
+   -------------------------------------------------------------------------- */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs);
+}
+
+/* Cada foto de la galería (imagen real, cuadrada en la variante A) */
+.gallery__item {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  object-fit: cover;         /* llena la celda sin deformar la foto */
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   7. PACKAGES — tarjetas de paquete con precio en badge
+   -------------------------------------------------------------------------- */
+.packages__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.package {
+  background: var(--color-surface);
+  border: 1px solid var(--color-brand-border-2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-card);
+}
+
+.package__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xs);
+}
+
+.package__name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-ink);
+}
+
+/* Precio como "píldora" rosa clara (variante A) */
+.package__price {
+  flex-shrink: 0;
+  background: var(--color-brand-tint);
+  color: var(--color-brand-dark);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.package__desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.package__cta {
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   8. CONTACT — datos, mapa y botones de contacto
+   -------------------------------------------------------------------------- */
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.contact__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  color: var(--color-ink-soft);
+}
+
+.contact__icon {
+  flex-shrink: 0;
+  color: var(--color-brand); /* stroke="currentColor" en los SVG */
+}
+
+.contact__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: var(--space-md);
+}
+
+.contact__note {
+  margin-top: var(--space-xl);
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-faint);
+}
+
+/* --------------------------------------------------------------------------
+   10. BOTONES — bloque .btn con modificadores por color/rol
+   -------------------------------------------------------------------------- */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 var(--space-md);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  transition: background-color 0.15s ease;
+}
+
+/* CTA de WhatsApp (verde de canal, NUNCA el rosa de marca) */
+.btn--whatsapp {
+  background: var(--color-whatsapp);
+  color: var(--color-surface);
+  border-radius: var(--radius-pill);
+}
+.btn--whatsapp:hover {
+  background: var(--color-whatsapp-dark);
+}
+
+/* Acción de marca (rosa sólido) — usada en "Cotizar" */
+.btn--brand {
+  background: var(--color-brand);
+  color: var(--color-surface);
+}
+.btn--brand:hover {
+  background: var(--color-brand-dark);
+}
+
+/* Botón secundario con contorno rosa (Instagram en contacto) */
+.btn--outline {
+  background: var(--color-surface);
+  color: var(--color-brand-dark);
+  border: 1.5px solid var(--color-brand);
+}
+
+/* Botón cuadrado sólo-icono (iconos sociales del menú) */
+.btn--icon {
+  flex: 1;
+  padding: 0;
+}
+.btn--icon.btn--whatsapp {
+  color: var(--color-surface);
+}
+
+/* Fondo rosa claro para el icono social secundario */
+.btn--tint {
+  background: var(--color-brand-tint);
+  color: var(--color-brand-dark);
+  border-radius: var(--radius-sm);
+}
+
+/* Un CTA más alto y con más énfasis (hero) */
+.hero__cta {
+  min-height: 44px;
+  font-size: 16px;
+  padding: 14px 26px;
+}
+
+/* --------------------------------------------------------------------------
+   11. PLACEHOLDERS — marcadores de imagen (contenido simulado)
+   --------------------------------------------------------------------------
+   Sustituyen fotos/mapa/logo reales, tal como en el diseño de referencia. */
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-xs);
+  background: var(--color-brand-tint);
+  color: var(--color-brand-dark);
+  border: 1.5px dashed var(--color-brand-border-strong);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.placeholder--hero {
+  width: 180px;
+  height: 180px;
+  border-radius: 24px;
+}
+
+/* Imagen dentro de cada tarjeta de paquete (mismo componente que la galería,
+   en formato apaisado para encabezar la tarjeta) */
+.placeholder--package {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  margin-bottom: var(--space-sm);
+}
+
+.placeholder--map {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   12. DOCK FLOTANTE — cambio de diseño (arriba) + WhatsApp (abajo)
+   --------------------------------------------------------------------------
+   Fijo en la esquina inferior derecha de la columna. El botón de cambio de
+   diseño va SOBRE la burbuja de WhatsApp y es deliberadamente discreto. */
+.dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: var(--space-lg);
+  max-width: var(--page-max);
+  margin-inline: auto;       /* alinea el dock con la columna */
+  padding-inline: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;     /* apila los botones a la derecha */
+  gap: var(--space-sm);
+  z-index: 90;
+  pointer-events: none;      /* deja pasar el toque salvo en los botones */
+}
+
+.dock > * {
+  pointer-events: auto;
+}
+
+/* Botón de cambio de diseño: discreto (blanco + borde/acento rosa),
+   pastilla con icono + etiqueta corta, más pequeño que el CTA de WhatsApp. */
+.dock__switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 14px 0 12px;
+  background: var(--color-surface);
+  color: var(--color-brand-dark);
+  border: 1.5px solid var(--color-brand);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: var(--shadow-switch);
+  transition: background-color 0.15s ease;
+}
+.dock__switch:hover {
+  background: var(--color-brand-tint);
+}
+
+.dock__label {
+  white-space: nowrap;
+}
+
+/* Burbuja de WhatsApp: el CTA dominante (verde, círculo grande). */
+.dock__whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-whatsapp);
+  box-shadow: var(--shadow-fab);
+  transition: background-color 0.15s ease;
+}
+.dock__whatsapp:hover {
+  background: var(--color-whatsapp-dark);
+}
+
+/* --------------------------------------------------------------------------
+   13. FOOTER — pie de página: marca, redes y copyright
+   -------------------------------------------------------------------------- */
+.footer {
+  border-top: 1px solid var(--color-brand-border);
+  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+.footer__brand {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color-ink);
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.footer__link {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-brand-dark);
+}
+.footer__link:hover {
+  color: var(--color-brand);
+}
+
+.footer__copy {
+  font-size: 12px;
+  color: var(--color-faint);
+}

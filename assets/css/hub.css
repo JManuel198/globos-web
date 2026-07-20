@@ -1,0 +1,239 @@
+/* ==========================================================================
+   hub.css — Página principal (selector de variante de diseño)
+   --------------------------------------------------------------------------
+   Punto de entrada del proyecto: deja elegir entre "Diseño A" y "Diseño B".
+   Incluye una miniatura/preview de cada variante construida sólo con CSS
+   (sin imágenes) para dar una idea real del estilo antes de entrar.
+   Depende de: variables.css (tokens) + reset.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. LAYOUT — pantalla centrada sobre fondo rosa suave
+   -------------------------------------------------------------------------- */
+.hub {
+  min-height: 100vh;
+  background: var(--color-brand-tint);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl) var(--space-lg);
+  gap: var(--space-2xl);
+}
+
+/* --------------------------------------------------------------------------
+   2. ENCABEZADO DEL HUB
+   -------------------------------------------------------------------------- */
+.hub__head {
+  text-align: center;
+  max-width: 420px;
+}
+
+.hub__logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin: 0 auto var(--space-md);
+  object-fit: cover;         /* recorta el logo al círculo sin deformar */
+  display: block;
+}
+
+.hub__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-ink);
+  margin-bottom: var(--space-xs);
+}
+
+.hub__subtitle {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-muted-2);
+}
+
+/* --------------------------------------------------------------------------
+   3. OPCIONES — dos tarjetas seleccionables (apiladas en móvil)
+   -------------------------------------------------------------------------- */
+.hub__options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  width: 100%;
+  max-width: 720px;
+}
+
+/* En pantallas medianas y grandes, las dos opciones van lado a lado */
+@media (min-width: 640px) {
+  .hub__options {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Toda la tarjeta es un enlace clicable a la variante */
+.option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-brand-border-2);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl) var(--space-lg);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.option:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(43, 34, 48, 0.12);
+}
+
+.option__label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-ink);
+}
+
+.option__desc {
+  font-size: 14px;
+  color: var(--color-muted);
+  text-align: center;
+  margin-top: calc(var(--space-xs) * -1);
+}
+
+/* Pseudo-botón visual dentro de la tarjeta */
+.option__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 var(--space-xl);
+  border-radius: var(--radius-pill);
+  background: var(--color-brand);
+  color: var(--color-surface);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+}
+.option:hover .option__cta {
+  background: var(--color-brand-dark);
+}
+
+/* --------------------------------------------------------------------------
+   4. PREVIEW — miniatura de teléfono hecha sólo con CSS
+   --------------------------------------------------------------------------
+   Reproduce en pequeño el estilo de cada variante. Las diferencias A/B se
+   aplican con los modificadores .preview--a y .preview--b. */
+.preview {
+  width: 150px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-brand-border-2);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 10px;
+}
+
+/* Barra superior (header) de la miniatura */
+.preview__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 9px;
+}
+.preview__logo {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-brand);
+}
+.preview__burger {
+  width: 12px;
+  height: 8px;
+  border-top: 2px solid var(--color-brand-dark);
+  border-bottom: 2px solid var(--color-brand-dark);
+}
+
+/* Bloque hero de la miniatura */
+.preview__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px 2px;
+}
+.preview__photo {
+  width: 60px;
+  height: 42px;
+  border-radius: 8px;
+  background: var(--color-brand-border-strong);
+}
+.preview__line {
+  width: 80%;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--color-brand-border-2);
+}
+.preview__line--title {
+  width: 92%;
+  height: 7px;
+  background: var(--color-muted);
+}
+.preview__cta {
+  width: 66px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--color-whatsapp);
+  margin-top: 2px;
+}
+
+/* Fila de "chips" decorativos en la miniatura */
+.preview__chips {
+  display: flex;
+  gap: 5px;
+  padding: 4px 10px 0;
+}
+.preview__chip {
+  width: 30px;
+  height: 11px;
+  border-radius: 999px;
+}
+
+/* ----- Modificador A: cálido y simple (blanco, chips con contorno) ----- */
+.preview--a .preview__hero {
+  background: var(--color-surface);
+}
+.preview--a .preview__chip {
+  border: 1.5px solid var(--color-brand);
+}
+
+/* ----- Modificador B: vibrante (hero como tarjeta rosa, chips rellenos) ----- */
+.preview--b {
+  border-color: var(--color-brand-border-strong);
+}
+.preview--b .preview__bar {
+  background: var(--color-brand-tint);
+}
+.preview--b .preview__hero {
+  margin: 6px;
+  padding: 8px;
+  border-radius: 12px;
+  background: var(--color-brand-tint);
+}
+.preview--b .preview__chip {
+  background: var(--color-brand);
+}
+
+/* --------------------------------------------------------------------------
+   5. PIE DEL HUB
+   -------------------------------------------------------------------------- */
+.hub__note {
+  font-size: 12px;
+  color: var(--color-muted-2);
+  text-align: center;
+}

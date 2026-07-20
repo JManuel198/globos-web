@@ -1,0 +1,69 @@
+/* ==========================================================================
+   variables.css — Tokens de diseño compartidos por TODO el proyecto
+   --------------------------------------------------------------------------
+   Fuente de verdad: example-design/Sueño en Globos - Opciones.dc.html
+   Ambas variantes (A "Cálido y simple" y B "Vibrante y juguetón") y el hub
+   reutilizan esta misma paleta base, tipografía y escala de espaciado.
+   NORMA: ningún color hardcodeado suelto en el proyecto — todo sale de aquí.
+   ========================================================================== */
+
+:root {
+  /* ----- Paleta de marca (ROSA) -------------------------------------------
+     El rosa es la identidad de "Sueño en Globos". Se mantiene siempre
+     separado del verde de WhatsApp (ver más abajo) para no confundir el
+     CTA de contacto con los acentos de marca. */
+  --color-brand:            #EC4899; /* rosa principal (botones, acentos)     */
+  --color-brand-dark:       #DB2777; /* rosa oscuro (hover / texto de precio) */
+  --color-brand-tint:       #FCE7F3; /* rosa muy claro (fondos suaves)        */
+  --color-brand-border:     #F6E1EC; /* borde rosa tenue (header variante A)  */
+  --color-brand-border-2:   #F6D8E7; /* borde rosa tarjetas (variante A)      */
+  --color-brand-border-strong: #F9C9DF; /* borde/círculos rosa (variante B)   */
+
+  /* ----- WhatsApp (VERDE) --------------------------------------------------
+     Deliberadamente diferenciado del rosa de marca: es el color del canal
+     de contacto, no de la identidad visual. */
+  --color-whatsapp:      #25D366; /* verde WhatsApp                 */
+  --color-whatsapp-dark: #1EBE5A; /* verde WhatsApp hover           */
+
+  /* ----- Neutros y texto --------------------------------------------------- */
+  --color-surface:  #FFFFFF; /* fondo de página / tarjetas             */
+  --color-ink:      #2B2230; /* texto principal (títulos)              */
+  --color-ink-soft: #4A424C; /* texto de cuerpo                        */
+  --color-muted:    #8A8290; /* texto secundario                      */
+  --color-muted-2:  #6B5E67; /* texto secundario (variante B)         */
+  --color-faint:    #B9AFB7; /* texto muy tenue (footer)              */
+  --color-page-bg:  #F0EEE9; /* fondo neutro fuera de la columna       */
+
+  /* ----- Tipografía --------------------------------------------------------
+     Fredoka para títulos/CTA (redondeada, amable) · Nunito para cuerpo. */
+  --font-heading: 'Fredoka', system-ui, sans-serif;
+  --font-body:    'Nunito', system-ui, sans-serif;
+
+  /* ----- Escala de espaciado ----------------------------------------------- */
+  --space-2xs:  4px;
+  --space-xs:   8px;
+  --space-sm:  12px;
+  --space-md:  16px;
+  --space-lg:  20px;
+  --space-xl:  24px;
+  --space-2xl: 32px;
+  --space-3xl: 40px;
+
+  /* ----- Radios de esquina ------------------------------------------------- */
+  --radius-sm:   12px;
+  --radius-md:   16px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
+  --radius-pill: 999px;
+
+  /* ----- Sombras ----------------------------------------------------------- */
+  --shadow-card: 0 2px 10px rgba(43, 34, 48, 0.05);   /* tarjetas suaves      */
+  --shadow-cta:  0 6px 16px rgba(37, 211, 102, 0.35); /* CTA WhatsApp          */
+  --shadow-fab:  0 8px 20px rgba(37, 211, 102, 0.45); /* burbuja flotante      */
+  --shadow-switch: 0 4px 12px rgba(43, 34, 48, 0.15); /* botón cambio diseño   */
+
+  /* ----- Layout ------------------------------------------------------------
+     Diseño mobile-first: la columna de contenido se limita a este ancho y se
+     centra en pantallas grandes para conservar la estética móvil aprobada. */
+  --page-max: 480px;
+}

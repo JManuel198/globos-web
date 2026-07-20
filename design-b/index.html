@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sueño en Globos: Diseño B</title>
+  <meta name="description" content="Decoraciones con globos únicas y personalizadas para tu evento. Diseño B: vibrante y juguetón.">
+
+  <!-- Tipografías de marca: Fredoka (títulos) + Nunito (cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS compartido (tokens + reset) y estilos propios de la variante -->
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- Modificador de tema en <body>: la variante B es "vibrante y juguetona" -->
+<body class="page page--b">
+
+  <!-- Encabezado fijo (fondo rosa en esta variante) -->
+  <header class="header">
+    <img class="logo" src="../assets/img/logo.jpg" alt="Sueño en Globos" width="36" height="36">
+    <a class="header__burger" href="#menu" aria-label="Abrir menú de navegación">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true">
+        <rect width="22" height="2.4" rx="1.2" fill="currentColor"></rect>
+        <rect y="6.8" width="22" height="2.4" rx="1.2" fill="currentColor"></rect>
+        <rect y="13.6" width="22" height="2.4" rx="1.2" fill="currentColor"></rect>
+      </svg>
+    </a>
+  </header>
+
+  <!-- Menú a pantalla completa vía :target (CSS puro, sin JavaScript) -->
+  <div class="nav" id="menu">
+    <div class="nav__bar">
+      <img class="logo" src="../assets/img/logo.jpg" alt="" aria-hidden="true" width="36" height="36">
+      <a class="nav__close" href="#inicio" aria-label="Cerrar menú">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M2 2L18 18M18 2L2 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
+        </svg>
+      </a>
+    </div>
+    <nav class="nav__list" aria-label="Navegación principal">
+      <a class="nav__link" href="#inicio">Inicio</a>
+      <a class="nav__link" href="#quienes">Quiénes somos</a>
+      <a class="nav__link" href="#galeria">Galería</a>
+      <a class="nav__link" href="#paquetes">Paquetes</a>
+      <a class="nav__link" href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav__social">
+      <a class="btn btn--whatsapp btn--icon" href="https://wa.me/50412345678" aria-label="Escríbenos por WhatsApp">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.5c0 2.5.7 4.8 1.9 6.8L3 29l7-2.1c1.9 1 4 1.6 6 1.6 7 0 12.7-5.6 12.7-12.5S23 3 16 3z" fill="#fff"></path><path d="M16 5.2c-5.8 0-10.5 4.6-10.5 10.3 0 2.3.8 4.4 2.1 6.1l-1.4 5 5.2-1.4c1.6 1 3.5 1.5 5.6 1.5 5.8 0 10.5-4.6 10.5-10.3S21.8 5.2 16 5.2z" style="fill:var(--color-whatsapp)"></path><path d="M12.3 10.2c-.3-.6-.5-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7 0 1.6 1.2 3.2 1.4 3.4.2.2 2.3 3.7 5.7 5 2.8 1.1 3.4.9 4 .8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.2-.3-.3-.7-.5-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.6-.2-.8.2-.2.3-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.5-.6-2.9-1.8-1.1-1-1.8-2.2-2-2.5-.2-.3 0-.5.2-.7.2-.2.4-.4.5-.6.2-.2.2-.4.3-.6.1-.2 0-.5 0-.7 0-.2-.7-1.9-1-2.6z" fill="#fff"></path></svg>
+      </a>
+      <a class="btn btn--outline btn--icon" href="https://instagram.com/suenoenglobos" aria-label="Síguenos en Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"></circle></svg>
+      </a>
+    </div>
+  </div>
+
+  <main class="content">
+
+    <!-- HERO: en la variante B es una tarjeta rosa con círculos decorativos -->
+    <section class="hero" id="inicio">
+      <div class="hero__card">
+        <!-- Círculos decorativos de fondo (puramente estéticos) -->
+        <span class="hero__decor hero__decor--tr" aria-hidden="true"></span>
+        <span class="hero__decor hero__decor--bl" aria-hidden="true"></span>
+        <div class="hero__inner">
+          <div class="placeholder placeholder--hero">Foto de decoración destacada</div>
+          <h1 class="hero__title">🎈 Hacemos de cada celebración un momento especial</h1>
+          <p class="hero__text">Decoraciones con globos únicas y personalizadas para tu evento. Diseños creativos, llenos de color.</p>
+          <a class="btn btn--whatsapp hero__cta" href="https://wa.me/50412345678">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.5c0 2.5.7 4.8 1.9 6.8L3 29l7-2.1c1.9 1 4 1.6 6 1.6 7 0 12.7-5.6 12.7-12.5S23 3 16 3z" fill="#fff"></path><path d="M16 5.2c-5.8 0-10.5 4.6-10.5 10.3 0 2.3.8 4.4 2.1 6.1l-1.4 5 5.2-1.4c1.6 1 3.5 1.5 5.6 1.5 5.8 0 10.5-4.6 10.5-10.3S21.8 5.2 16 5.2z" style="fill:var(--color-whatsapp)"></path><path d="M12.3 10.2c-.3-.6-.5-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7 0 1.6 1.2 3.2 1.4 3.4.2.2 2.3 3.7 5.7 5 2.8 1.1 3.4.9 4 .8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.2-.3-.3-.7-.5-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.6-.2-.8.2-.2.3-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.5-.6-2.9-1.8-1.1-1-1.8-2.2-2-2.5-.2-.3 0-.5.2-.7.2-.2.4-.4.5-.6.2-.2.2-.4.3-.6.1-.2 0-.5 0-.7 0-.2-.7-1.9-1-2.6z" fill="#fff"></path></svg>
+            Pedir por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS — único título con barra de acento en esta variante -->
+    <section class="section" id="quienes">
+      <h2 class="section__title">Quiénes somos</h2>
+      <span class="section__rule" aria-hidden="true"></span>
+      <p class="section__text">Creamos decoraciones con globos únicas y personalizadas para todo tipo de eventos. Nos encanta hacer de cada celebración un momento especial, con diseños creativos y llenos de color. Tu fiesta merece verse tan especial como se siente.</p>
+    </section>
+
+    <!-- GALERÍA: cuadrícula de 2 columnas (fotos verticales en la variante B) -->
+    <section class="section" id="galeria">
+      <h2 class="section__title">Nuestros trabajos</h2>
+      <p class="section__subtitle">Así lucen algunas de nuestras decoraciones</p>
+      <div class="gallery__grid">
+        <!-- 6 fotos reales de trabajos (assets/img/trabajo_1..6.jpg) -->
+        <img class="gallery__item" src="../assets/img/trabajo_1.jpg" alt="Decoración con globos, trabajo 1" width="400" height="500" loading="lazy">
+        <img class="gallery__item" src="../assets/img/trabajo_2.jpg" alt="Decoración con globos, trabajo 2" width="400" height="500" loading="lazy">
+        <img class="gallery__item" src="../assets/img/trabajo_3.jpg" alt="Decoración con globos, trabajo 3" width="400" height="500" loading="lazy">
+        <img class="gallery__item" src="../assets/img/trabajo_4.jpg" alt="Decoración con globos, trabajo 4" width="400" height="500" loading="lazy">
+        <img class="gallery__item" src="../assets/img/trabajo_5.jpg" alt="Decoración con globos, trabajo 5" width="400" height="500" loading="lazy">
+        <img class="gallery__item" src="../assets/img/trabajo_6.jpg" alt="Decoración con globos, trabajo 6" width="400" height="500" loading="lazy">
+      </div>
+    </section>
+
+    <!-- PAQUETES: tarjetas rosas con barra lateral y precio en línea propia -->
+    <section class="section" id="paquetes">
+      <h2 class="section__title">Nuestros paquetes</h2>
+      <p class="section__subtitle">Precios de referencia. Cotizamos según tu evento.</p>
+      <div class="packages__list">
+
+        <article class="package">
+          <span class="package__bar" aria-hidden="true"></span>
+          <!-- Placeholder de imagen del paquete (mismo patrón que la galería) -->
+          <div class="placeholder placeholder--package">Foto del paquete</div>
+          <h3 class="package__name">Arco Sencillo</h3>
+          <div class="package__price">Desde $45</div>
+          <p class="package__desc">Arco de globos para ambientar tu evento o lucir en las fotos. Ideal para cumpleaños o baby showers.</p>
+          <a class="btn btn--brand package__cta" href="https://wa.me/50412345678">Cotizar</a>
+        </article>
+
+        <article class="package">
+          <span class="package__bar" aria-hidden="true"></span>
+          <!-- Placeholder de imagen del paquete (mismo patrón que la galería) -->
+          <div class="placeholder placeholder--package">Foto del paquete</div>
+          <h3 class="package__name">Fiesta Completa</h3>
+          <div class="package__price">Desde $120</div>
+          <p class="package__desc">Decoración integral: arco, centros de mesa y detalles a juego con el tema de tu celebración.</p>
+          <a class="btn btn--brand package__cta" href="https://wa.me/50412345678">Cotizar</a>
+        </article>
+
+        <article class="package">
+          <span class="package__bar" aria-hidden="true"></span>
+          <!-- Placeholder de imagen del paquete (mismo patrón que la galería) -->
+          <div class="placeholder placeholder--package">Foto del paquete</div>
+          <h3 class="package__name">Bodas &amp; Grandes Eventos</h3>
+          <div class="package__price">Desde $250</div>
+          <p class="package__desc">Diseño a la medida para bodas, grados y aniversarios, con instalación incluida.</p>
+          <a class="btn btn--brand package__cta" href="https://wa.me/50412345678">Cotizar</a>
+        </article>
+
+        <article class="package">
+          <span class="package__bar" aria-hidden="true"></span>
+          <!-- Placeholder de imagen del paquete (mismo patrón que la galería) -->
+          <div class="placeholder placeholder--package">Foto del paquete</div>
+          <h3 class="package__name">Detalle Express</h3>
+          <div class="package__price">Desde $25</div>
+          <p class="package__desc">Números, letras o figuras de globos para sorpresas rápidas y detalles especiales.</p>
+          <a class="btn btn--brand package__cta" href="https://wa.me/50412345678">Cotizar</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CONTACTO: datos dentro de una tarjeta rosa + botones tipo píldora -->
+    <section class="section" id="contacto">
+      <h2 class="section__title">Conversemos</h2>
+      <ul class="contact__info">
+        <li class="contact__row">
+          <svg class="contact__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"></circle><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>
+          Lunes a sábado, 9:00am – 6:00pm
+        </li>
+        <li class="contact__row">
+          <svg class="contact__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" stroke="currentColor" stroke-width="1.8"></path><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.8"></circle></svg>
+          Atendemos a domicilio en toda la ciudad
+        </li>
+      </ul>
+      <div class="placeholder placeholder--map">Mapa de ubicación</div>
+      <div class="contact__actions">
+        <a class="btn btn--whatsapp" href="https://wa.me/50412345678">
+          <svg width="20" height="20" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.5c0 2.5.7 4.8 1.9 6.8L3 29l7-2.1c1.9 1 4 1.6 6 1.6 7 0 12.7-5.6 12.7-12.5S23 3 16 3z" fill="#fff"></path><path d="M16 5.2c-5.8 0-10.5 4.6-10.5 10.3 0 2.3.8 4.4 2.1 6.1l-1.4 5 5.2-1.4c1.6 1 3.5 1.5 5.6 1.5 5.8 0 10.5-4.6 10.5-10.3S21.8 5.2 16 5.2z" style="fill:var(--color-whatsapp)"></path><path d="M12.3 10.2c-.3-.6-.5-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7 0 1.6 1.2 3.2 1.4 3.4.2.2 2.3 3.7 5.7 5 2.8 1.1 3.4.9 4 .8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.2-.3-.3-.7-.5-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.6-.2-.8.2-.2.3-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.5-.6-2.9-1.8-1.1-1-1.8-2.2-2-2.5-.2-.3 0-.5.2-.7.2-.2.4-.4.5-.6.2-.2.2-.4.3-.6.1-.2 0-.5 0-.7 0-.2-.7-1.9-1-2.6z" fill="#fff"></path></svg>
+          Escríbenos por WhatsApp
+        </a>
+        <a class="btn btn--outline" href="https://instagram.com/suenoenglobos">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"></circle></svg>
+          @suenoenglobos
+        </a>
+      </div>
+      <p class="contact__note">Hecho con 🎈 para tu próxima celebración</p>
+    </section>
+
+  </main>
+
+  <!-- Pie de página: marca, redes (placeholders) y copyright del año actual -->
+  <footer class="footer">
+    <p class="footer__brand">Sueño en Globos 🎈</p>
+    <nav class="footer__social" aria-label="Redes sociales">
+      <a class="footer__link" href="https://instagram.com/suenoenglobos">Instagram</a>
+      <a class="footer__link" href="https://wa.me/50412345678">WhatsApp</a>
+    </nav>
+    <p class="footer__copy">© 2026 Sueño en Globos. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ==========================================================================
+       DOCK FLOTANTE: cambio de diseño (arriba) + WhatsApp (abajo).
+       Aquí el botón discreto lleva de vuelta al Diseño A.
+       ========================================================================== -->
+  <div class="dock">
+    <a class="dock__switch" href="../design-a/" aria-label="Cambiar al Diseño A">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 8h13l-3.5-3.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M20 16H7l3.5 3.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <span class="dock__label">Diseño A</span>
+    </a>
+    <a class="dock__whatsapp" href="https://wa.me/50412345678" aria-label="Escríbenos por WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.5c0 2.5.7 4.8 1.9 6.8L3 29l7-2.1c1.9 1 4 1.6 6 1.6 7 0 12.7-5.6 12.7-12.5S23 3 16 3z" fill="#fff"></path><path d="M16 5.2c-5.8 0-10.5 4.6-10.5 10.3 0 2.3.8 4.4 2.1 6.1l-1.4 5 5.2-1.4c1.6 1 3.5 1.5 5.6 1.5 5.8 0 10.5-4.6 10.5-10.3S21.8 5.2 16 5.2z" style="fill:var(--color-whatsapp)"></path><path d="M12.3 10.2c-.3-.6-.5-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7 0 1.6 1.2 3.2 1.4 3.4.2.2 2.3 3.7 5.7 5 2.8 1.1 3.4.9 4 .8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.2-.3-.3-.7-.5-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.6-.2-.8.2-.2.3-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.5-.6-2.9-1.8-1.1-1-1.8-2.2-2-2.5-.2-.3 0-.5.2-.7.2-.2.4-.4.5-.6.2-.2.2-.4.3-.6.1-.2 0-.5 0-.7 0-.2-.7-1.9-1-2.6z" fill="#fff"></path></svg>
+    </a>
+  </div>
+
+</body>
+</html>

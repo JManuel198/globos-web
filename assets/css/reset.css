@@ -1,0 +1,69 @@
+/* ==========================================================================
+   reset.css — Reset básico compartido
+   --------------------------------------------------------------------------
+   Normaliza el comportamiento entre navegadores sin imponer estilo visual.
+   Se carga antes que la hoja de cada página.
+   ========================================================================== */
+
+/* Box model predecible en todos los elementos */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Quita márgenes por defecto de bloques comunes */
+html, body, h1, h2, h3, h4, p, figure, blockquote, ul, ol {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%; /* evita reescalado de texto en iOS */
+  scroll-behavior: smooth;        /* scroll suave al navegar por anclas */
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Imágenes/medios se adaptan a su contenedor */
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Los elementos de formulario heredan la tipografía */
+button, input, textarea, select, a {
+  font: inherit;
+  color: inherit;
+}
+
+/* Botones sin estilos nativos por defecto */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Enlaces sin subrayado por defecto (se decide por componente) */
+a {
+  text-decoration: none;
+}
+
+/* Listas sin viñetas cuando se usan como navegación/etiquetas */
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+}
+
+/* Respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

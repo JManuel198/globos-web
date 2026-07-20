@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sueño en Globos: elige un diseño</title>
+  <meta name="description" content="Elige entre las dos direcciones de diseño de la web de Sueño en Globos: A (cálido y simple) o B (vibrante y juguetón).">
+
+  <!-- Tipografías de marca: Fredoka (títulos) + Nunito (cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS compartido (tokens + reset) y estilos propios del hub -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/hub.css">
+</head>
+
+<body class="hub">
+
+  <!-- Encabezado del selector -->
+  <header class="hub__head">
+    <img class="hub__logo" src="assets/img/logo.jpg" alt="Sueño en Globos" width="56" height="56">
+    <h1 class="hub__title">Sueño en Globos 🎈</h1>
+    <p class="hub__subtitle">Tenemos dos direcciones de diseño aprobadas para la web. Echa un vistazo y entra a la que prefieras.</p>
+  </header>
+
+  <!-- Dos opciones: cada tarjeta completa es un enlace a su variante.
+       Incluye una miniatura hecha con CSS que anticipa el estilo real. -->
+  <main class="hub__options">
+
+    <!-- OPCIÓN A -->
+    <a class="option" href="design-a/" aria-label="Ver el Diseño A: cálido y simple">
+      <!-- Miniatura de la variante A (blanco, chips con contorno) -->
+      <div class="preview preview--a" aria-hidden="true">
+        <div class="preview__bar">
+          <span class="preview__logo"></span>
+          <span class="preview__burger"></span>
+        </div>
+        <div class="preview__hero">
+          <span class="preview__photo"></span>
+          <span class="preview__line preview__line--title"></span>
+          <span class="preview__line"></span>
+          <span class="preview__cta"></span>
+        </div>
+        <div class="preview__chips">
+          <span class="preview__chip"></span>
+          <span class="preview__chip"></span>
+          <span class="preview__chip"></span>
+        </div>
+      </div>
+      <span class="option__label">Diseño A</span>
+      <span class="option__desc">Cálido y simple</span>
+      <span class="option__cta">Ver diseño</span>
+    </a>
+
+    <!-- OPCIÓN B -->
+    <a class="option" href="design-b/" aria-label="Ver el Diseño B: vibrante y juguetón">
+      <!-- Miniatura de la variante B (hero rosa, chips rellenos) -->
+      <div class="preview preview--b" aria-hidden="true">
+        <div class="preview__bar">
+          <span class="preview__logo"></span>
+          <span class="preview__burger"></span>
+        </div>
+        <div class="preview__hero">
+          <span class="preview__photo"></span>
+          <span class="preview__line preview__line--title"></span>
+          <span class="preview__line"></span>
+          <span class="preview__cta"></span>
+        </div>
+        <div class="preview__chips">
+          <span class="preview__chip"></span>
+          <span class="preview__chip"></span>
+          <span class="preview__chip"></span>
+        </div>
+      </div>
+      <span class="option__label">Diseño B</span>
+      <span class="option__desc">Vibrante y juguetón</span>
+      <span class="option__cta">Ver diseño</span>
+    </a>
+
+  </main>
+
+  <p class="hub__note">Podrás cambiar de un diseño al otro en cualquier momento desde el botón flotante de cada página.</p>
+
+</body>
+</html>

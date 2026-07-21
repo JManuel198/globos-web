@@ -246,11 +246,12 @@ html {
 }
 
 /* Cada foto de la galería (imagen real, vertical y muy redondeada en B) */
-.gallery__item {
+.gallery__grid img {
   width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: 26px;
-  object-fit: cover;         /* llena la celda sin deformar la foto */
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  object-fit: cover;        /* esto es lo que evita que la imagen "rompa" el layout */
   display: block;
 }
 

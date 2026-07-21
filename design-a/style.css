@@ -24,8 +24,6 @@ html {
   position: relative;
   /* Eleva la columna sobre el fondo neutro en pantallas grandes */
   box-shadow: 0 0 40px rgba(43, 34, 48, 0.06);
-  /* Espacio inferior para que el dock flotante no tape el footer/contenido */
-  padding-bottom: 130px;
 }
 
 /* Compensa la altura del header fijo al saltar a una sección por ancla */
@@ -214,11 +212,12 @@ html {
 }
 
 /* Cada foto de la galería (imagen real, cuadrada en la variante A) */
-.gallery__item {
+.gallery__grid img {
   width: 100%;
+  height: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 14px;
-  object-fit: cover;         /* llena la celda sin deformar la foto */
+  object-fit: cover;        /* esto es lo que evita que la imagen "rompa" el layout */
   display: block;
 }
 
